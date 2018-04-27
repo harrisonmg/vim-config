@@ -42,11 +42,11 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_regexp = 1
 " Add helptags
 helptags ~/.vim/doc
-" Faster split switching with space
-noremap <space> <c-w>
 " Faster tab switching
 noremap <c-l> gt
 noremap <c-h> gT
+" Faster split switching
+map <space> <c-w><c-w>
 " Enable insert mode arrows
 imap <c-h> <Left>
 imap <c-j> <Down>
