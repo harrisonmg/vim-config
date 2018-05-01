@@ -16,7 +16,6 @@ set nofoldenable
 set foldlevel=2
 colorscheme monokai
 set cursorline
-set colorcolumn=80
 set hlsearch
 set autoindent
 " Insert newlines
@@ -35,7 +34,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 " Set default explorer view
 let g:netrw_liststyle = 3
 " Enable XML highlighting for .launch files
-autocmd BufEnter *.launch :setlocal syntax=xml
+autocmd BufEnter *.launch setlocal syntax=xml
 " Setup CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -82,3 +81,5 @@ endif
 imap <c-r> <c-r>"
 " Yank to EOL, but not CR
 noremap Y v$hy
+" Show length marker in Python files
+autocmd FileType python setlocal colorcolumn=80
