@@ -10,14 +10,20 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 hi normal guibg=NONE ctermbg=NONE
-set foldmethod=syntax
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-colorscheme monokai
 set cursorline
 set hlsearch
 set autoindent
+" Colorscheme
+set background=dark
+let g:seoul256_background = 236
+colo seoul256
+let g:lightline = { 'colorscheme': 'seoul256' }
+" Get rid of tab numbers
+let g:lightline.tab_component_function = {
+      \ 'filename': 'lightline#tab#filename',
+      \ 'modified': 'lightline#tab#modified',
+      \ 'readonly': 'lightline#tab#readonly',
+      \ 'tabnum': '' }
 " Insert newlines
 nnoremap <c-k> mxo<esc>`x
 nnoremap <c-j> mxO<esc>`x
@@ -64,13 +70,7 @@ command! S source ~/.vimrc
 command! WS w | S
 command! Ws w | S
 command! E Explore
-" Enable airline tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#tab_nr_type = 0
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#show_splits = 0
+command! Hitest tabe | so $VIMRUNTIME/syntax/hitest.vim
 " Commenting shortcut
 if has('win32')
     map <c-/> <plug>NERDCommenterToggle
