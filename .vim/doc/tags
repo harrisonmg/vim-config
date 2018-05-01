@@ -95,6 +95,9 @@ ClearAllCtrlPCaches	ctrlp.txt	/*ClearAllCtrlPCaches*
 ClearCtrlPCache	ctrlp.txt	/*ClearCtrlPCache*
 ControlP	ctrlp.txt	/*ControlP*
 CtrlP	ctrlp.txt	/*CtrlP*
+CurrentLineWhitespaceOff	better-whitespace.txt	/*CurrentLineWhitespaceOff*
+DisableWhitespace	better-whitespace.txt	/*DisableWhitespace*
+EnableWhitespace	better-whitespace.txt	/*EnableWhitespace*
 NERDComAbout	NERD_commenter.txt	/*NERDComAbout*
 NERDComAlignedComment	NERD_commenter.txt	/*NERDComAlignedComment*
 NERDComAltDelim	NERD_commenter.txt	/*NERDComAltDelim*
@@ -131,6 +134,9 @@ NERDCommenter	NERD_commenter.txt	/*NERDCommenter*
 NERDCommenterContents	NERD_commenter.txt	/*NERDCommenterContents*
 NERD_commenter.txt	NERD_commenter.txt	/*NERD_commenter.txt*
 ResetCtrlP	ctrlp.txt	/*ResetCtrlP*
+StripWhitespace	better-whitespace.txt	/*StripWhitespace*
+ToggleStripWhitespaceOnSave	better-whitespace.txt	/*ToggleStripWhitespaceOnSave*
+ToggleWhitespace	better-whitespace.txt	/*ToggleWhitespace*
 add_statusline_func	airline.txt	/*add_statusline_func*
 airline	airline.txt	/*airline*
 airline-accents	airline.txt	/*airline-accents*
@@ -188,6 +194,7 @@ airline-writing-extensions	airline.txt	/*airline-writing-extensions*
 airline-xkblayout	airline.txt	/*airline-xkblayout*
 airline-ycm	airline.txt	/*airline-ycm*
 airline.txt	airline.txt	/*airline.txt*
+better-whitespace.txt	better-whitespace.txt	/*better-whitespace.txt*
 ctrlp-changelog	ctrlp.txt	/*ctrlp-changelog*
 ctrlp-commands	ctrlp.txt	/*ctrlp-commands*
 ctrlp-contents	ctrlp.txt	/*ctrlp-contents*
@@ -212,5 +219,6 @@ g:ctrlp_mru_files	ctrlp.txt	/*g:ctrlp_mru_files*
 g:ctrlp_open_multi	ctrlp.txt	/*g:ctrlp_open_multi*
 g:ctrlp_persistent_input	ctrlp.txt	/*g:ctrlp_persistent_input*
 g:ctrlp_regexp_search	ctrlp.txt	/*g:ctrlp_regexp_search*
+operator	better-whitespace.txt	/*operator*
 remove_statusline_func	airline.txt	/*remove_statusline_func*
 vim-airline	airline.txt	/*vim-airline*

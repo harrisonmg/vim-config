@@ -16,6 +16,7 @@ set nofoldenable
 set foldlevel=2
 colorscheme monokai
 set cursorline
+set colorcolumn=80
 set hlsearch
 set autoindent
 " Insert newlines
