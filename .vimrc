@@ -1,4 +1,5 @@
 set nocompatible
+set noshowmode
 set number
 filetype plugin indent on
 syntax enable
@@ -17,8 +18,9 @@ set autoindent
 set background=dark
 let g:seoul256_background = 236
 colo seoul256
+hi VertSplit ctermbg=NONE cterm=NONE
+" Lightline
 let g:lightline = { 'colorscheme': 'seoul256' }
-" Get rid of tab numbers
 let g:lightline.tab_component_function = {
       \ 'filename': 'lightline#tab#filename',
       \ 'modified': 'lightline#tab#modified',
@@ -70,7 +72,7 @@ command! S source ~/.vimrc
 command! WS w | S
 command! Ws w | S
 command! E Explore
-command! Hitest tabe | so $VIMRUNTIME/syntax/hitest.vim
+command! Hitest so $VIMRUNTIME/syntax/hitest.vim
 " Commenting shortcut
 if has('win32')
     map <c-/> <plug>NERDCommenterToggle
@@ -83,3 +85,52 @@ imap <c-r> <c-r>"
 noremap Y v$hy
 " Show length marker in Python files
 autocmd FileType python setlocal colorcolumn=80,100
+" Lightline X CtrlP
+function! MyFilename()
+  if expand('%:t') == 'ControlP'
+    return g:lightline.ctrlp_prev . ' ' . g:lightline.subseparator.left . ' ' . 
+          \ g:lightline.ctrlp_item . ' ' . g:lightline.subseparator.left . ' ' .
+          \ g:lightline.ctrlp_next
+  endif
+  if expand('%:t') == '__Tagbar__'
+    return  'Tagbar ' . g:lightline.subseparator.left . ' ' . 
+          \ g:lightline.fname
+  endif
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
+        \  &ft == 'unite' ? unite#get_status_string() : 
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! CtrlPMark()
+  return expand('%:t') =~ 'ControlP' ? g:lightline.ctrlp_marked : ''
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  let g:lightline.ctrlp_marked = a:marked
+  return lightline#statusline(0)
+endfunction
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+function! MyMode()
+  return expand('%:t') == '__Tagbar__' ? 'Tagbar' :
+        \ expand('%:t') == 'ControlP' ? 'CtrlP' :
+        \ winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
