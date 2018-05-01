@@ -82,4 +82,4 @@ imap <c-r> <c-r>"
 " Yank to EOL, but not CR
 noremap Y v$hy
 " Show length marker in Python files
-autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal colorcolumn=80,100
