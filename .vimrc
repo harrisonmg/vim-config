@@ -135,3 +135,8 @@ function! MyMode()
         \ expand('%:t') == 'ControlP' ? 'CtrlP' :
         \ winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+map f <Plug>(easymotion-overwin-f)
+hi link EasyMotionTarget Exception
