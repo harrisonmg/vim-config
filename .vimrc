@@ -19,6 +19,7 @@ set background=dark
 let g:seoul256_background = 236
 colo seoul256
 hi VertSplit ctermbg=NONE cterm=NONE
+set fillchars+=vert:\ 
 " Lightline
 let g:lightline = { 'colorscheme': 'seoul256' }
 let g:lightline.tab_component_function = {
