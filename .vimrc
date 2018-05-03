@@ -140,3 +140,5 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 map f <Plug>(easymotion-overwin-f)
 hi link EasyMotionTarget Exception
+" Don't autoscan included files (takes a long time)
+set complete-=i
